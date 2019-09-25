@@ -67,8 +67,8 @@ class MonitorSensor(PollingSensor):
         pass
       
     def get_credentials():
-    credentials = ServicePrincipalCredentials(
-        client_id = '94c1d9ea-ffd1-4340-8f19-d3ad284805d8',
-        secret = 'uJUcbJbJjN3Y3TXYRR*6lUVuV/Z0Av@]',
-        tenant = 'd5656af4-b7b3-45b9-9346-fb0547921fb7'
-    )
+        credentials = ServicePrincipalCredentials(
+                    client_id = '94c1d9ea-ffd1-4340-8f19-d3ad284805d8',
+                    secret = 'uJUcbJbJjN3Y3TXYRR*6lUVuV/Z0Av@]',
+                    tenant = 'd5656af4-b7b3-45b9-9346-fb0547921fb7'
+                    )
