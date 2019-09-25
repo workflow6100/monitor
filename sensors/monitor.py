@@ -5,16 +5,16 @@ import datetime
 from datetime import timedelta
 from azure.mgmt.monitor import MonitorManagementClient
 from azure.common.credentials import ServicePrincipalCredentials
-
 from st2reactor.sensor.base import PollingSensor
 
-
-class MonitorSensor(PollingSensor):
+class IMAPSensor(PollingSensor):
     def __init__(self, sensor_service, config=None, poll_interval=10):
-        super(MonitorSensor, self).__init__(sensor_service=sensor_service,
+        super(IMAPSensor, self).__init__(sensor_service=sensor_service,
                                          config=config,
-                                         poll_interval=poll_interval)        
-        self._logger = self._sensor_service.get_logger(__name__)        
+                                         poll_interval=poll_interval)
+
+        self._trigger = 'monitor123.imap.message'
+        self._logger = self._sensor_service.get_logger(__name__)         
 
     def setup(self):  
         SUBSCRIPTION_ID = '2f50f202-0a84-4c8c-a929-fcc5a3174590'
@@ -53,13 +53,11 @@ class MonitorSensor(PollingSensor):
           sum=sum+m1
         avg=sum/5
         payload = {'average': avg}
-
         self._sensor_service.dispatch(trigger='monitor123.monitor', payload=payload)
           
     def cleanup(self):
-        self._stop = True
-
-    # Methods required for programmable sensors.
+        pass
+    
     def add_trigger(self, trigger):
         pass
 
