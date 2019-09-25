@@ -13,9 +13,7 @@ class MonitorSensor(PollingSensor):
     def __init__(self, sensor_service, config=None, poll_interval=10):
         super(MonitorSensor, self).__init__(sensor_service=sensor_service,
                                          config=config,
-                                         poll_interval=poll_interval)
-
-        self._trigger = 'monitor123.monitor.message'
+                                         poll_interval=poll_interval)        
         self._logger = self._sensor_service.get_logger(__name__)        
 
     def setup(self):  
@@ -56,7 +54,7 @@ class MonitorSensor(PollingSensor):
         avg=sum/5
         payload = {'average': avg}
 
-        self._sensor_service.dispatch(trigger=self._trigger, payload=payload)
+        self._sensor_service.dispatch(trigger='monitor123.monitor', payload=payload)
           
     def cleanup(self):
         self._stop = True
