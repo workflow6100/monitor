@@ -53,7 +53,7 @@ class IMAPSensor(PollingSensor):
           sum=sum+m1
         avg=sum/5
         payload = {'average': avg}
-        self._sensor_service.dispatch(trigger='monitor123.monitor', payload=payload)
+        self._sensor_service.dispatch(trigger=self._trigger, payload=payload)
           
     def cleanup(self):
         pass
