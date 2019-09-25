@@ -13,8 +13,7 @@ class IMAPSensor(PollingSensor):
                                          config=config,
                                          poll_interval=poll_interval)
 
-        self._trigger = 'monitor123.imap.message'
-        self._logger = self._sensor_service.get_logger(__name__)         
+        self._trigger = 'monitor123.imap.message'             
 
     def setup(self):  
         SUBSCRIPTION_ID = '2f50f202-0a84-4c8c-a929-fcc5a3174590'
