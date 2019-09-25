@@ -49,9 +49,7 @@ class MonitorSensor(PollingSensor):
         for m1 in m:
           sum=sum+m1
         avg=sum/5
-         payload = {
-            'average': avg
-            }
+        payload = {'average': avg}
 
         self._sensor_service.dispatch(trigger=self._trigger, payload=payload)
           
