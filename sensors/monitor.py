@@ -10,15 +10,19 @@ from st2reactor.sensor.base import PollingSensor
 
 
 class MonitorSensor(PollingSensor):
-    def __init__(self, sensor_service, config, poll_interval=10):
-        super(MonitorSensor, self).__init__(sensor_service=sensor_service, config=config, poll_interval=poll_interval)        
+    def __init__(self, sensor_service, config=None, poll_interval=10):
+        super(MonitorSensor, self).__init__(sensor_service=sensor_service,
+                                         config=config,
+                                         poll_interval=poll_interval)
+
         self._trigger = 'monitor123.monitor.message'
+        self._logger = self._sensor_service.get_logger(__name__)        
+
+    def setup(self):  
         SUBSCRIPTION_ID = '2f50f202-0a84-4c8c-a929-fcc5a3174590'
         GROUP_NAME = 'OmkarVmPlzDoNotRemove'
         LOCATION = 'West US'
         VM_NAME = 'OmkarVmPlzDoNotRemoveThis'
-
-    def setup(self):      
         resource_id = (
               "subscriptions/{}/"
               "resourceGroups/{}/"
