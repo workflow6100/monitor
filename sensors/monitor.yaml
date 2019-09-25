@@ -1,1 +1,10 @@
-
+---
+class_name: "MonitorSensor"
+entry_point: "monitor.py"
+description: "Sensor that monitor VM"
+trigger_types:
+  -
+    name: monitor.message
+    description: "sensor to get  vm percentage CPU"
+    payload_info:
+      - average   
