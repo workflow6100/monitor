@@ -4,7 +4,7 @@ entry_point: "monitor.py"
 description: "Sensor that monitor VM"
 trigger_types:
   -
-    name: monitor.message
+    name: monitor
     description: "sensor to get  vm percentage CPU"
-    payload_info:
-      - average   
+    payload_schema:
+      type: "object"
