@@ -1,10 +1,10 @@
 ---
-class_name: "MonitorSensor"
+class_name: "IMAPSensor"
 entry_point: "monitor.py"
 description: "Sensor that monitor VM"
 trigger_types:
   -
-    name: monitor
+    name: imap.monitor
     description: "sensor to get  vm percentage CPU"
-    payload_schema:
-      type: "object"
+    payload_info:
+      - average
