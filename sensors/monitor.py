@@ -72,3 +72,4 @@ class IMAPSensor(PollingSensor):
                     secret = 'uJUcbJbJjN3Y3TXYRR*6lUVuV/Z0Av@]',
                     tenant = 'd5656af4-b7b3-45b9-9346-fb0547921fb7'
                     )
+        return credentials
